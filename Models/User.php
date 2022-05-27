@@ -38,11 +38,16 @@ class User{
      * @param object $creditCard carta da inserire nelle carte disponibili
      */
     public function insertCreditCard($creditCard){
-
-        array_push($this->availableCreditCard, $creditCard);
-
-    }
-
+        /* add exception */
+        if (!is_object($creditCard)) {
+            throw new Exception(' Non è un oggetto !');}
+            
+            
+            array_push($this->availableCreditCard, $creditCard);
+            
+        }
+        
+        
     /**
      * 
      * seleziona lo sconto selezionado il tipo di utente 
@@ -62,6 +67,8 @@ class User{
     }
     
 }
+
+
 
 trait naming {
 
